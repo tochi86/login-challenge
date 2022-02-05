@@ -117,6 +117,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		CFEFD5A927AE3CDB00D63D57 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D6673347279BA6AC00CC8AB3 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		D66732F3279ABE8C00CC8AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -144,9 +152,9 @@
 			children = (
 				CFEFD5A627AE3A8A00D63D57 /* Repository */,
 				CF0CC9F8279C318000157FFF /* Login */,
+				CFEFD5A927AE3CDB00D63D57 /* Home */,
 				D66732FF279ABE8C00CC8AB3 /* AppDelegate.swift */,
 				D6673301279ABE8C00CC8AB3 /* SceneDelegate.swift */,
-				D6673347279BA6AC00CC8AB3 /* HomeView.swift */,
 				D6673345279B07F400CC8AB3 /* HomeViewController.swift */,
 				D6673344279B06F000CC8AB3 /* Supports */,
 				D6673305279ABE8C00CC8AB3 /* Main.storyboard */,
