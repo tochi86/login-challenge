@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CF0CC9FA279C31B700157FFF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0CC9F9279C31B700157FFF /* LoginViewModel.swift */; };
 		CF0CC9FC279C31CB00157FFF /* LoginUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0CC9FB279C31CB00157FFF /* LoginUiState.swift */; };
+		CFEFD5A827AE3AAB00D63D57 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5A727AE3AAB00D63D57 /* AuthRepository.swift */; };
 		D6673300279ABE8C00CC8AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66732FF279ABE8C00CC8AB3 /* AppDelegate.swift */; };
 		D6673302279ABE8C00CC8AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673301279ABE8C00CC8AB3 /* SceneDelegate.swift */; };
 		D6673304279ABE8C00CC8AB3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673303279ABE8C00CC8AB3 /* LoginViewController.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		CF0CC9F9279C31B700157FFF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CF0CC9FB279C31CB00157FFF /* LoginUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUiState.swift; sourceTree = "<group>"; };
+		CFEFD5A727AE3AAB00D63D57 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		D66732FC279ABE8C00CC8AB3 /* LoginChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D66732FF279ABE8C00CC8AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6673301279ABE8C00CC8AB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		CFEFD5A627AE3A8A00D63D57 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFD5A727AE3AAB00D63D57 /* AuthRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		D66732F3279ABE8C00CC8AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 		D66732FE279ABE8C00CC8AB3 /* LoginChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				CFEFD5A627AE3A8A00D63D57 /* Repository */,
 				CF0CC9F8279C318000157FFF /* Login */,
 				D66732FF279ABE8C00CC8AB3 /* AppDelegate.swift */,
 				D6673301279ABE8C00CC8AB3 /* SceneDelegate.swift */,
@@ -320,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6673304279ABE8C00CC8AB3 /* LoginViewController.swift in Sources */,
+				CFEFD5A827AE3AAB00D63D57 /* AuthRepository.swift in Sources */,
 				D6673348279BA6AC00CC8AB3 /* HomeView.swift in Sources */,
 				D6673300279ABE8C00CC8AB3 /* AppDelegate.swift in Sources */,
 				D667333D279ACF4300CC8AB3 /* ActivityIndicatorViewController.swift in Sources */,
