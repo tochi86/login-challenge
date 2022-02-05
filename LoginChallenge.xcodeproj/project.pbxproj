@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CF0CC9FA279C31B700157FFF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0CC9F9279C31B700157FFF /* LoginViewModel.swift */; };
 		CF0CC9FC279C31CB00157FFF /* LoginUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0CC9FB279C31CB00157FFF /* LoginUiState.swift */; };
+		CF3090D027AEF9B7002E7F98 /* User+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3090CF27AEF9B7002E7F98 /* User+Equatable.swift */; };
 		CFEFD5A827AE3AAB00D63D57 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5A727AE3AAB00D63D57 /* AuthRepository.swift */; };
 		CFEFD5AB27AE3DFF00D63D57 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5AA27AE3DFF00D63D57 /* HomeViewModel.swift */; };
 		CFEFD5AD27AE3E0800D63D57 /* HomeUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5AC27AE3E0800D63D57 /* HomeUiState.swift */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		CF0CC9F9279C31B700157FFF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CF0CC9FB279C31CB00157FFF /* LoginUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUiState.swift; sourceTree = "<group>"; };
+		CF3090CF27AEF9B7002E7F98 /* User+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Equatable.swift"; sourceTree = "<group>"; };
 		CFEFD5A727AE3AAB00D63D57 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		CFEFD5AA27AE3DFF00D63D57 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CFEFD5AC27AE3E0800D63D57 /* HomeUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUiState.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				D667333E279AD1E400CC8AB3 /* UIViewController+TransitionAsync.swift */,
 				CFEFD5BB27AEB86B00D63D57 /* Logger.swift */,
 				CFEFD5BD27AEBA9200D63D57 /* ErrorAlert.swift */,
+				CF3090CF27AEF9B7002E7F98 /* User+Equatable.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				D667333F279AD1E400CC8AB3 /* UIViewController+TransitionAsync.swift in Sources */,
 				CFEFD5AB27AE3DFF00D63D57 /* HomeViewModel.swift in Sources */,
 				D6673346279B07F400CC8AB3 /* HomeViewController.swift in Sources */,
+				CF3090D027AEF9B7002E7F98 /* User+Equatable.swift in Sources */,
 				CFEFD5BC27AEB86B00D63D57 /* Logger.swift in Sources */,
 				CFEFD5AF27AE3EF500D63D57 /* UserRepository.swift in Sources */,
 				D667334A279BAAED00CC8AB3 /* ActivityIndicatorCoverModifier.swift in Sources */,
