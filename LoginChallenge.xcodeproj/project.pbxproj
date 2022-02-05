@@ -18,6 +18,9 @@
 		CFEFD5BC27AEB86B00D63D57 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5BB27AEB86B00D63D57 /* Logger.swift */; };
 		CFEFD5BE27AEBA9200D63D57 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5BD27AEBA9200D63D57 /* ErrorAlert.swift */; };
 		CFEFD5C027AEC2AF00D63D57 /* OutputMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5BF27AEC2AF00D63D57 /* OutputMocks.swift */; };
+		CFEFD5C227AEC41800D63D57 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5C127AEC41800D63D57 /* LoginViewModelTests.swift */; };
+		CFEFD5C527AED91600D63D57 /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5C427AED91600D63D57 /* Task+Extensions.swift */; };
+		CFEFD5C727AED98D00D63D57 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5C627AED98D00D63D57 /* XCTestCase+Extensions.swift */; };
 		D6673300279ABE8C00CC8AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66732FF279ABE8C00CC8AB3 /* AppDelegate.swift */; };
 		D6673302279ABE8C00CC8AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673301279ABE8C00CC8AB3 /* SceneDelegate.swift */; };
 		D6673304279ABE8C00CC8AB3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673303279ABE8C00CC8AB3 /* LoginViewController.swift */; };
@@ -66,6 +69,9 @@
 		CFEFD5BB27AEB86B00D63D57 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		CFEFD5BD27AEBA9200D63D57 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		CFEFD5BF27AEC2AF00D63D57 /* OutputMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputMocks.swift; sourceTree = "<group>"; };
+		CFEFD5C127AEC41800D63D57 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		CFEFD5C427AED91600D63D57 /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
+		CFEFD5C627AED98D00D63D57 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		D66732FC279ABE8C00CC8AB3 /* LoginChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D66732FF279ABE8C00CC8AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6673301279ABE8C00CC8AB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 		CFEFD5B527AEA51000D63D57 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CFEFD5C127AEC41800D63D57 /* LoginViewModelTests.swift */,
 				CFEFD5B627AEA54100D63D57 /* LoginUiStateTests.swift */,
 			);
 			path = Login;
@@ -158,6 +165,15 @@
 				CFEFD5B927AEAA5500D63D57 /* HomeUiStateTests.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		CFEFD5C327AED8FB00D63D57 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFD5C427AED91600D63D57 /* Task+Extensions.swift */,
+				CFEFD5C627AED98D00D63D57 /* XCTestCase+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D66732F3279ABE8C00CC8AB3 = {
@@ -204,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				CFEFD5BF27AEC2AF00D63D57 /* OutputMocks.swift */,
+				CFEFD5C327AED8FB00D63D57 /* Extensions */,
 				CFEFD5B527AEA51000D63D57 /* Login */,
 				CFEFD5B827AEAA3D00D63D57 /* Home */,
 				D6673316279ABE8F00CC8AB3 /* LoginChallengeTests.swift */,
@@ -401,6 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFEFD5C227AEC41800D63D57 /* LoginViewModelTests.swift in Sources */,
+				CFEFD5C527AED91600D63D57 /* Task+Extensions.swift in Sources */,
+				CFEFD5C727AED98D00D63D57 /* XCTestCase+Extensions.swift in Sources */,
 				CFEFD5BA27AEAA5500D63D57 /* HomeUiStateTests.swift in Sources */,
 				D6673317279ABE8F00CC8AB3 /* LoginChallengeTests.swift in Sources */,
 				CFEFD5C027AEC2AF00D63D57 /* OutputMocks.swift in Sources */,
