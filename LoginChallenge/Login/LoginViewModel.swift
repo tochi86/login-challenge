@@ -46,17 +46,13 @@ final class LoginViewModel: ObservableObject {
 
                 switch error {
                 case is LoginError:
-                    state.showErrorAlert = .init(title: "ログインエラー",
-                                                 message: "IDまたはパスワードが正しくありません。")
+                    state.showErrorAlert = .login
                 case is NetworkError:
-                    state.showErrorAlert = .init(title: "ネットワークエラー",
-                                                 message: "通信に失敗しました。ネットワークの状態を確認して下さい。")
+                    state.showErrorAlert = .network
                 case is ServerError:
-                    state.showErrorAlert = .init(title: "サーバーエラー",
-                                                 message: "しばらくしてからもう一度お試し下さい。")
+                    state.showErrorAlert = .server
                 default:
-                    state.showErrorAlert = .init(title: "システムエラー",
-                                                 message: "エラーが発生しました。")
+                    state.showErrorAlert = .system
                 }
             }
         }

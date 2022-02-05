@@ -13,7 +13,7 @@ struct LoginUiState: Equatable {
     var isLoading: Bool = false
 
     var showHomeView: Bool = false
-    var showErrorAlert: ErrorMessage?
+    var showErrorAlert: ErrorAlert?
 
     var isIdFieldEnalbed: Bool {
         return !isLoading
@@ -26,9 +26,4 @@ struct LoginUiState: Equatable {
     var isLoginButtonEnabled: Bool {
         return !isLoading && !id.isEmpty && !password.isEmpty
     }
-}
-
-struct ErrorMessage: Equatable {
-    let title: String
-    let message: String
 }

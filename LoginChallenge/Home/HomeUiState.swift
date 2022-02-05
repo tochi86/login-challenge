@@ -12,10 +12,7 @@ struct HomeUiState: Equatable {
     var user: User?
     var isReloading: Bool = false
     var isLoggingOut: Bool = false
-    var showAuthenticationErrorAlert: Bool = false
-    var showNetworkErrorAlert: Bool = false
-    var showServerErrorAlert: Bool = false
-    var showSystemErrorAlert: Bool = false
+    var showErrorAlert: ErrorAlert?
     var dismiss: Bool = false
 
     var nameText: String {

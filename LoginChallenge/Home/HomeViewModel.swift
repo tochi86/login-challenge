@@ -13,20 +13,20 @@ final class HomeViewModel: ObservableObject {
 
     @Published private(set) var state: HomeUiState
     var showAuthenticationErrorAlert: Binding<Bool> {
-        Binding(get: { self.state.showAuthenticationErrorAlert },
-                set: { self.state.showAuthenticationErrorAlert = $0 })
+        Binding(get: { self.state.showErrorAlert == .authentication },
+                set: { self.state.showErrorAlert = $0 ? .authentication : nil })
     }
     var showNetworkErrorAlert: Binding<Bool> {
-        Binding(get: { self.state.showNetworkErrorAlert },
-                set: { self.state.showNetworkErrorAlert = $0 })
+        Binding(get: { self.state.showErrorAlert == .network },
+                set: { self.state.showErrorAlert = $0 ? .network : nil })
     }
     var showServerErrorAlert: Binding<Bool> {
-        Binding(get: { self.state.showServerErrorAlert },
-                set: { self.state.showServerErrorAlert = $0 })
+        Binding(get: { self.state.showErrorAlert == .server },
+                set: { self.state.showErrorAlert = $0 ? .server : nil })
     }
     var showSystemErrorAlert: Binding<Bool> {
-        Binding(get: { self.state.showSystemErrorAlert },
-                set: { self.state.showSystemErrorAlert = $0 })
+        Binding(get: { self.state.showErrorAlert == .system },
+                set: { self.state.showErrorAlert = $0 ? .system : nil })
     }
 
     private let authRepository: AuthRepository
@@ -75,13 +75,13 @@ final class HomeViewModel: ObservableObject {
 
                 switch error {
                 case is AuthenticationError:
-                    state.showAuthenticationErrorAlert = true
+                    state.showErrorAlert = .authentication
                 case is NetworkError:
-                    state.showNetworkErrorAlert = true
+                    state.showErrorAlert = .network
                 case is ServerError:
-                    state.showServerErrorAlert = true
+                    state.showErrorAlert = .server
                 default:
-                    state.showSystemErrorAlert = true
+                    state.showErrorAlert = .system
                 }
             }
         }

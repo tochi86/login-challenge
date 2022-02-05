@@ -58,32 +58,32 @@ struct HomeView: View {
             }
         }
         .alert(
-            "認証エラー",
+            ErrorAlert.authentication.title,
             isPresented: viewModel.showAuthenticationErrorAlert,
             actions: {
-                Button("OK") {
+                Button(ErrorAlert.authentication.buttonTitle) {
                     dismiss()
                 }
             },
-            message: { Text("再度ログインして下さい。") }
+            message: { Text(ErrorAlert.authentication.message) }
         )
         .alert(
-            "ネットワークエラー",
+            ErrorAlert.network.title,
             isPresented: viewModel.showNetworkErrorAlert,
-            actions: { Text("閉じる") },
-            message: { Text("通信に失敗しました。ネットワークの状態を確認して下さい。") }
+            actions: { Text(ErrorAlert.network.buttonTitle) },
+            message: { Text(ErrorAlert.network.message) }
         )
         .alert(
-            "サーバーエラー",
+            ErrorAlert.server.title,
             isPresented: viewModel.showServerErrorAlert,
-            actions: { Text("閉じる") },
-            message: { Text("しばらくしてからもう一度お試し下さい。") }
+            actions: { Text(ErrorAlert.server.buttonTitle) },
+            message: { Text(ErrorAlert.server.message) }
         )
         .alert(
-            "システムエラー",
+            ErrorAlert.system.title,
             isPresented: viewModel.showSystemErrorAlert,
-            actions: { Text("閉じる") },
-            message: { Text("エラーが発生しました。") }
+            actions: { Text(ErrorAlert.system.buttonTitle) },
+            message: { Text(ErrorAlert.system.message) }
         )
         .activityIndicatorCover(isPresented: state.isLoggingOut)
         .onChange(of: state.dismiss) { newValue in

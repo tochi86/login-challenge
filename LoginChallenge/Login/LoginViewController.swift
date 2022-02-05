@@ -60,15 +60,15 @@ final class LoginViewController: UIViewController {
             .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .compactMap { $0 }
-            .sink { [weak self] errorMessage in
+            .sink { [weak self] errorAlert in
                 guard let self = self else { return }
 
                 let alertController: UIAlertController = .init(
-                    title: errorMessage.title,
-                    message: errorMessage.message,
+                    title: errorAlert.title,
+                    message: errorAlert.message,
                     preferredStyle: .alert
                 )
-                alertController.addAction(.init(title: "閉じる", style: .default, handler: nil))
+                alertController.addAction(.init(title: errorAlert.buttonTitle, style: .default, handler: nil))
 
                 self.present(alertController, animated: true)
                 self.viewModel.onErrorAlertDidShow()
