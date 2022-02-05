@@ -15,6 +15,7 @@
 		CFEFD5AF27AE3EF500D63D57 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5AE27AE3EF500D63D57 /* UserRepository.swift */; };
 		CFEFD5B727AEA54100D63D57 /* LoginUiStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5B627AEA54100D63D57 /* LoginUiStateTests.swift */; };
 		CFEFD5BA27AEAA5500D63D57 /* HomeUiStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5B927AEAA5500D63D57 /* HomeUiStateTests.swift */; };
+		CFEFD5BC27AEB86B00D63D57 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5BB27AEB86B00D63D57 /* Logger.swift */; };
 		D6673300279ABE8C00CC8AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66732FF279ABE8C00CC8AB3 /* AppDelegate.swift */; };
 		D6673302279ABE8C00CC8AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673301279ABE8C00CC8AB3 /* SceneDelegate.swift */; };
 		D6673304279ABE8C00CC8AB3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6673303279ABE8C00CC8AB3 /* LoginViewController.swift */; };
@@ -60,6 +61,7 @@
 		CFEFD5AE27AE3EF500D63D57 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		CFEFD5B627AEA54100D63D57 /* LoginUiStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUiStateTests.swift; sourceTree = "<group>"; };
 		CFEFD5B927AEAA5500D63D57 /* HomeUiStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUiStateTests.swift; sourceTree = "<group>"; };
+		CFEFD5BB27AEB86B00D63D57 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		D66732FC279ABE8C00CC8AB3 /* LoginChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D66732FF279ABE8C00CC8AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6673301279ABE8C00CC8AB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				D6673349279BAAED00CC8AB3 /* ActivityIndicatorCoverModifier.swift */,
 				D667333C279ACF4300CC8AB3 /* ActivityIndicatorViewController.swift */,
 				D667333E279AD1E400CC8AB3 /* UIViewController+TransitionAsync.swift */,
+				CFEFD5BB27AEB86B00D63D57 /* Logger.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				D667333F279AD1E400CC8AB3 /* UIViewController+TransitionAsync.swift in Sources */,
 				CFEFD5AB27AE3DFF00D63D57 /* HomeViewModel.swift in Sources */,
 				D6673346279B07F400CC8AB3 /* HomeViewController.swift in Sources */,
+				CFEFD5BC27AEB86B00D63D57 /* Logger.swift in Sources */,
 				CFEFD5AF27AE3EF500D63D57 /* UserRepository.swift in Sources */,
 				D667334A279BAAED00CC8AB3 /* ActivityIndicatorCoverModifier.swift in Sources */,
 				CF0CC9FA279C31B700157FFF /* LoginViewModel.swift in Sources */,

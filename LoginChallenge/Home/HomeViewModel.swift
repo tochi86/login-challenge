@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Entities
-import Logging
 
 @MainActor
 final class HomeViewModel: ObservableObject {
@@ -33,16 +32,18 @@ final class HomeViewModel: ObservableObject {
     private let authRepository: AuthRepository
     private let userRepository: UserRepository
 
-    private let logger: Logger = .init(label: String(reflecting: HomeViewModel.self))
+    private let logger: Logger
 
     init(
         state: HomeUiState = .init(),
         authRepository: AuthRepository = AuthRepositoryImpl(),
-        userRepository: UserRepository = UserRepositoryImpl()
+        userRepository: UserRepository = UserRepositoryImpl(),
+        logger: Logger = LoggerImpl(label: String(reflecting: HomeViewModel.self))
     ) {
         self.state = state
         self.authRepository = authRepository
         self.userRepository = userRepository
+        self.logger = logger
     }
 
     func onViewDidAppear() {

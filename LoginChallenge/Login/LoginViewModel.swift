@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 import Entities
-import Logging
 
 @MainActor
 final class LoginViewModel: ObservableObject {
@@ -17,15 +16,16 @@ final class LoginViewModel: ObservableObject {
 
     private let authRepository: AuthRepository
 
-    // String(reflecting:) はモジュール名付きの型名を取得するため。
-    private let logger: Logger = .init(label: String(reflecting: LoginViewModel.self))
+    private let logger: Logger
 
     init(
         state: LoginUiState = .init(),
-        authRepository: AuthRepository = AuthRepositoryImpl()
+        authRepository: AuthRepository = AuthRepositoryImpl(),
+        logger: Logger = LoggerImpl(label: String(reflecting: LoginViewModel.self))
     ) {
         self.state = state
         self.authRepository = authRepository
+        self.logger = logger
     }
 
     func onInputFieldValueChanged(id: String, password: String) {
