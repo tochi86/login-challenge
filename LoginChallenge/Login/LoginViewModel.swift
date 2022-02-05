@@ -32,6 +32,7 @@ final class LoginViewModel: ObservableObject {
     }
 
     func onLoginButtonDidTap() async {
+        guard state.isLoginButtonEnabled else { return }
         do {
             state.isLoading = true
             try await authRepository.login(id: state.id, password: state.password)

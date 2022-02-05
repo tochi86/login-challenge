@@ -23,6 +23,20 @@ class LoginViewModelTests: XCTestCase {
         viewModel = .init(authRepository: authRepository, logger: logger)
     }
 
+    func test_ログインボタンが無効の時はログイン処理を行わない() async throws {
+        XCTAssertFalse(viewModel.state.isLoginButtonEnabled)
+
+        authRepository.loginHandler = { (_, _) in
+            XCTFail()
+        }
+
+        let result = try await publishedValues(of: viewModel.$state.map(\.isLoading).removeDuplicates()) {
+            await viewModel.onLoginButtonDidTap()
+        }
+
+        XCTAssertEqual(result, [false])
+    }
+
     func test_ログイン処理中はローディング中状態になりログイン完了後は非ローディング状態になる() async throws {
         viewModel.onInputFieldValueChanged(id: "a", password: "a")
 
