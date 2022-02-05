@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Entities
 
 @MainActor
 final class HomeViewModel: ObservableObject {
@@ -67,19 +66,9 @@ final class HomeViewModel: ObservableObject {
             state.user = try await userRepository.currentUser()
             state.isReloading = false
         } catch {
-            state.isReloading = false
             logger.info("\(error)")
-
-            switch error {
-            case is AuthenticationError:
-                state.showErrorAlert = .authentication
-            case is NetworkError:
-                state.showErrorAlert = .network
-            case is ServerError:
-                state.showErrorAlert = .server
-            default:
-                state.showErrorAlert = .system
-            }
+            state.isReloading = false
+            state.showErrorAlert = ErrorAlert(error: error)
         }
     }
 }

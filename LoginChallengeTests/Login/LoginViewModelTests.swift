@@ -42,48 +42,12 @@ class LoginViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.state.showHomeView)
     }
 
-    func test_ログイン失敗時にログインエラーを表示する() async throws {
+    func test_ログイン失敗時にエラーアラートを表示する() async throws {
         viewModel.onInputFieldValueChanged(id: "a", password: "a")
         XCTAssertNil(viewModel.state.showErrorAlert)
 
         authRepository.loginHandler = { (_, _) in
-            throw LoginError()
-        }
-        await viewModel.onLoginButtonDidTap()
-
-        XCTAssertEqual(viewModel.state.showErrorAlert, .login)
-    }
-
-    func test_ログイン失敗時にネットワークエラーを表示する() async throws {
-        viewModel.onInputFieldValueChanged(id: "a", password: "a")
-        XCTAssertNil(viewModel.state.showErrorAlert)
-
-        authRepository.loginHandler = { (_, _) in
-            throw NetworkError(cause: GeneralError(message: "Timeout."))
-        }
-        await viewModel.onLoginButtonDidTap()
-
-        XCTAssertEqual(viewModel.state.showErrorAlert, .network)
-    }
-
-    func test_ログイン失敗時にサーバーエラーを表示する() async throws {
-        viewModel.onInputFieldValueChanged(id: "a", password: "a")
-        XCTAssertNil(viewModel.state.showErrorAlert)
-
-        authRepository.loginHandler = { (_, _) in
-            throw ServerError.internal(cause: GeneralError(message: "Rate limit exceeded."))
-        }
-        await viewModel.onLoginButtonDidTap()
-
-        XCTAssertEqual(viewModel.state.showErrorAlert, .server)
-    }
-
-    func test_ログイン失敗時にシステムエラーを表示する() async throws {
-        viewModel.onInputFieldValueChanged(id: "a", password: "a")
-        XCTAssertNil(viewModel.state.showErrorAlert)
-
-        authRepository.loginHandler = { (_, _) in
-            throw GeneralError(message: "System error.")
+            throw GeneralError(message: "")
         }
         await viewModel.onLoginButtonDidTap()
 

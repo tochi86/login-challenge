@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Entities
 
 enum ErrorAlert {
     case login
@@ -13,6 +14,21 @@ enum ErrorAlert {
     case server
     case system
     case authentication
+
+    init(error: Error) {
+        switch error {
+        case is LoginError:
+            self = .login
+        case is NetworkError:
+            self = .network
+        case is ServerError:
+            self = .server
+        case is AuthenticationError:
+            self = .authentication
+        default:
+            self = .system
+        }
+    }
 
     var title: String {
         switch self {

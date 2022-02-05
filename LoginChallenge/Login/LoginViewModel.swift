@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import Combine
-import Entities
 
 @MainActor
 final class LoginViewModel: ObservableObject {
@@ -40,19 +38,9 @@ final class LoginViewModel: ObservableObject {
             state.isLoading = false
             state.showHomeView = true
         } catch {
-            state.isLoading = false
             logger.info("\(error)")
-
-            switch error {
-            case is LoginError:
-                state.showErrorAlert = .login
-            case is NetworkError:
-                state.showErrorAlert = .network
-            case is ServerError:
-                state.showErrorAlert = .server
-            default:
-                state.showErrorAlert = .system
-            }
+            state.isLoading = false
+            state.showErrorAlert = ErrorAlert(error: error)
         }
     }
 
