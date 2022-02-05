@@ -46,43 +46,39 @@ final class HomeViewModel: ObservableObject {
         self.logger = logger
     }
 
-    func onViewDidAppear() {
-        loadUser()
+    func onViewDidAppear() async {
+        await loadUser()
     }
 
-    func onReloadButtonDidTap() {
-        loadUser()
+    func onReloadButtonDidTap() async {
+        await loadUser()
     }
 
-    func onLogoutButtonDidTap() {
-        Task {
-            state.isLoggingOut = true
-            await authRepository.logout()
-            state.isLoggingOut = false
-            state.dismiss = true
-        }
+    func onLogoutButtonDidTap() async {
+        state.isLoggingOut = true
+        await authRepository.logout()
+        state.isLoggingOut = false
+        state.dismiss = true
     }
 
-    private func loadUser() {
-        Task {
-            do {
-                state.isReloading = true
-                state.user = try await userRepository.currentUser()
-                state.isReloading = false
-            } catch {
-                state.isReloading = false
-                logger.info("\(error)")
+    private func loadUser() async {
+        do {
+            state.isReloading = true
+            state.user = try await userRepository.currentUser()
+            state.isReloading = false
+        } catch {
+            state.isReloading = false
+            logger.info("\(error)")
 
-                switch error {
-                case is AuthenticationError:
-                    state.showErrorAlert = .authentication
-                case is NetworkError:
-                    state.showErrorAlert = .network
-                case is ServerError:
-                    state.showErrorAlert = .server
-                default:
-                    state.showErrorAlert = .system
-                }
+            switch error {
+            case is AuthenticationError:
+                state.showErrorAlert = .authentication
+            case is NetworkError:
+                state.showErrorAlert = .network
+            case is ServerError:
+                state.showErrorAlert = .server
+            default:
+                state.showErrorAlert = .system
             }
         }
     }

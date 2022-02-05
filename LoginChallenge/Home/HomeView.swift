@@ -39,7 +39,9 @@ struct HomeView: View {
                     
                     // リロードボタン
                     Button {
-                        viewModel.onReloadButtonDidTap()
+                        Task {
+                            await viewModel.onReloadButtonDidTap()
+                        }
                     } label: {
                         Image(systemName: "arrow.clockwise")
                     }
@@ -51,7 +53,9 @@ struct HomeView: View {
                 
                 // ログアウトボタン
                 Button("Logout") {
-                    viewModel.onLogoutButtonDidTap()
+                    Task {
+                        await viewModel.onLogoutButtonDidTap()
+                    }
                 }
                 .disabled(!state.isLogoutButtonEnabled)
                 .padding(.bottom, 30)
@@ -91,8 +95,8 @@ struct HomeView: View {
                 dismiss()
             }
         }
-        .onAppear {
-            viewModel.onViewDidAppear()
+        .task {
+            await viewModel.onViewDidAppear()
         }
     }
 }

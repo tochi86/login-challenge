@@ -33,27 +33,25 @@ final class LoginViewModel: ObservableObject {
         state.password = password
     }
 
-    func onLoginButtonDidTap() {
-        Task {
-            do {
-                state.isLoading = true
-                try await authRepository.login(id: state.id, password: state.password)
-                state.isLoading = false
-                state.showHomeView = true
-            } catch {
-                state.isLoading = false
-                logger.info("\(error)")
+    func onLoginButtonDidTap() async {
+        do {
+            state.isLoading = true
+            try await authRepository.login(id: state.id, password: state.password)
+            state.isLoading = false
+            state.showHomeView = true
+        } catch {
+            state.isLoading = false
+            logger.info("\(error)")
 
-                switch error {
-                case is LoginError:
-                    state.showErrorAlert = .login
-                case is NetworkError:
-                    state.showErrorAlert = .network
-                case is ServerError:
-                    state.showErrorAlert = .server
-                default:
-                    state.showErrorAlert = .system
-                }
+            switch error {
+            case is LoginError:
+                state.showErrorAlert = .login
+            case is NetworkError:
+                state.showErrorAlert = .network
+            case is ServerError:
+                state.showErrorAlert = .server
+            default:
+                state.showErrorAlert = .system
             }
         }
     }

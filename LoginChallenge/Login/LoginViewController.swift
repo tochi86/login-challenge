@@ -98,7 +98,9 @@ final class LoginViewController: UIViewController {
     
     // ログインボタンが押されたときにログイン処理を実行。
     @IBAction private func loginButtonPressed(_ sender: UIButton) {
-        viewModel.onLoginButtonDidTap()
+        Task {
+            await viewModel.onLoginButtonDidTap()
+        }
     }
     
     // ID およびパスワードのテキストが変更されたときに View の状態を更新。
