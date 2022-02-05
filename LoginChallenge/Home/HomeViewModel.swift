@@ -50,10 +50,12 @@ final class HomeViewModel: ObservableObject {
     }
 
     func onReloadButtonDidTap() async {
+        guard state.isReloadButtonEnabled else { return }
         await loadUser()
     }
 
     func onLogoutButtonDidTap() async {
+        guard state.isLogoutButtonEnabled else { return }
         state.isLoggingOut = true
         await authRepository.logout()
         state.isLoggingOut = false

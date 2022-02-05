@@ -70,6 +70,35 @@ class HomeViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.state.dismiss)
     }
 
+    func test_リロードボタンが無効の時はリロード処理を行わない() async throws {
+        viewModel = .init(state: .init(isReloading: true), authRepository: authRepository, userRepository: userRepository, logger: logger)
+        XCTAssertFalse(viewModel.state.isReloadButtonEnabled)
+
+        userRepository.currentUserHandler = {
+            XCTFail()
+            fatalError()
+        }
+
+        let result = try await publishedValues(of: viewModel.$state.map(\.isReloading).removeDuplicates()) {
+            await viewModel.onReloadButtonDidTap()
+        }
+
+        XCTAssertEqual(result, [true])
+    }
+
+    func test_ログアウトボタンが無効の時はログアウト処理を行わない() async throws {
+        viewModel = .init(state: .init(isLoggingOut: true), authRepository: authRepository, userRepository: userRepository, logger: logger)
+        XCTAssertFalse(viewModel.state.isLogoutButtonEnabled)
+
+        authRepository.logoutHandler = { XCTFail() }
+
+        let result = try await publishedValues(of: viewModel.$state.map(\.isLoggingOut).removeDuplicates()) {
+            await viewModel.onLogoutButtonDidTap()
+        }
+
+        XCTAssertEqual(result, [true])
+    }
+
     private var dummyUser: User {
         return .init(id: .init(rawValue: "a"), name: "a", introduction: "a")
     }
