@@ -6,7 +6,49 @@
 //
 
 import Foundation
+import Entities
 
-struct HomeUiState {
+struct HomeUiState: Equatable {
+    var user: User?
+    var isReloading: Bool = false
+    var isLoggingOut: Bool = false
+    var showAuthenticationErrorAlert: Bool = false
+    var showNetworkErrorAlert: Bool = false
+    var showServerErrorAlert: Bool = false
+    var showSystemErrorAlert: Bool = false
+    var dismiss: Bool = false
 
+    var nameText: String {
+        return user?.name ?? "User Name"
+    }
+
+    var idText: String {
+        return user?.id.rawValue ?? "@ididid"
+    }
+
+    var introductionText: String {
+        return user?.introduction ?? "Introduction. Introduction. Introduction. Introduction. Introduction. Introduction."
+    }
+
+    var attributedIntroductionText: AttributedString? {
+        return try? AttributedString(markdown: introductionText)
+    }
+
+    var isReloadButtonEnabled: Bool {
+        return !isReloading
+    }
+
+    var isLogoutButtonEnabled: Bool {
+        return !isLoggingOut
+    }
+
+    var shouldShowPlaceholder: Bool {
+        return user == nil
+    }
+}
+
+extension User: Equatable {
+    public static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
