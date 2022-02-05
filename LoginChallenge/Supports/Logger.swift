@@ -7,6 +7,7 @@
 
 import Logging
 
+/// @mockable(module: prefix = LoginChallenge)
 protocol Logger: AnyObject {
     func info(_ message: String)
 }

@@ -8,6 +8,7 @@
 import Foundation
 import APIServices
 
+/// @mockable
 protocol AuthRepository: AnyObject {
     func login(id: String, password: String) async throws
     func logout() async

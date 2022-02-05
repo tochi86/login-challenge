@@ -9,6 +9,7 @@ import Foundation
 import Entities
 import APIServices
 
+/// @mockable
 protocol UserRepository: AnyObject {
     func currentUser() async throws -> User
 }
