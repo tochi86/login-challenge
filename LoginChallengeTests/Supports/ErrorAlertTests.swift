@@ -1,5 +1,5 @@
 //
-//  ErrorAlerTests.swift
+//  ErrorAlertTests.swift
 //  LoginChallengeTests
 //
 //  Created by Toshiya Kobayashi on 2022/02/06.
@@ -9,7 +9,7 @@ import XCTest
 import Entities
 @testable import LoginChallenge
 
-class ErrorAlerTests: XCTestCase {
+class ErrorAlertTests: XCTestCase {
 
     func test_ログインエラー() throws {
         let error = LoginError()
