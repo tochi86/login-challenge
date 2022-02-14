@@ -23,7 +23,7 @@ class LoginViewModelTests: XCTestCase {
     @MainActor override func setUpWithError() throws {
         diContainer = DIContainerMock()
         DIContainer.default = diContainer
-        viewModel = LoginViewModel(logger: LoggerMock())
+        viewModel = LoginViewModel()
     }
 
     func test_ログインボタンが無効の時はログイン処理を行わない() async throws {

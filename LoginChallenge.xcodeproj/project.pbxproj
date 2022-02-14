@@ -11,6 +11,7 @@
 		CF0CC9FC279C31CB00157FFF /* LoginUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0CC9FB279C31CB00157FFF /* LoginUiState.swift */; };
 		CF3090D027AEF9B7002E7F98 /* User+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3090CF27AEF9B7002E7F98 /* User+Equatable.swift */; };
 		CFA796FE27BA5D4E008BF6CB /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA796FD27BA5D4E008BF6CB /* DIContainer.swift */; };
+		CFA7970027BA7DE9008BF6CB /* OutputMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5BF27AEC2AF00D63D57 /* OutputMocks.swift */; };
 		CFEFD5A827AE3AAB00D63D57 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5A727AE3AAB00D63D57 /* AuthRepository.swift */; };
 		CFEFD5AB27AE3DFF00D63D57 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5AA27AE3DFF00D63D57 /* HomeViewModel.swift */; };
 		CFEFD5AD27AE3E0800D63D57 /* HomeUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5AC27AE3E0800D63D57 /* HomeUiState.swift */; };
@@ -19,7 +20,6 @@
 		CFEFD5BA27AEAA5500D63D57 /* HomeUiStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5B927AEAA5500D63D57 /* HomeUiStateTests.swift */; };
 		CFEFD5BC27AEB86B00D63D57 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5BB27AEB86B00D63D57 /* Logger.swift */; };
 		CFEFD5BE27AEBA9200D63D57 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5BD27AEBA9200D63D57 /* ErrorAlert.swift */; };
-		CFEFD5C027AEC2AF00D63D57 /* OutputMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5BF27AEC2AF00D63D57 /* OutputMocks.swift */; };
 		CFEFD5C227AEC41800D63D57 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5C127AEC41800D63D57 /* LoginViewModelTests.swift */; };
 		CFEFD5C527AED91600D63D57 /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5C427AED91600D63D57 /* Task+Extensions.swift */; };
 		CFEFD5C727AED98D00D63D57 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFD5C627AED98D00D63D57 /* XCTestCase+Extensions.swift */; };
@@ -139,6 +139,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		CFA796FF27BA7DD4008BF6CB /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFD5BF27AEC2AF00D63D57 /* OutputMocks.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		CFEFD5A627AE3A8A00D63D57 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				D667334B279BB34B00CC8AB3 /* README.md */,
+				CFA796FF27BA7DD4008BF6CB /* Generated */,
 				D66732FE279ABE8C00CC8AB3 /* LoginChallenge */,
 				D6673315279ABE8F00CC8AB3 /* LoginChallengeTests */,
 				D667331F279ABE8F00CC8AB3 /* LoginChallengeUITests */,
@@ -236,7 +245,6 @@
 		D6673315279ABE8F00CC8AB3 /* LoginChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				CFEFD5BF27AEC2AF00D63D57 /* OutputMocks.swift */,
 				CFEFD5C327AED8FB00D63D57 /* Extensions */,
 				CFEFD5B527AEA51000D63D57 /* Login */,
 				CFEFD5B827AEAA3D00D63D57 /* Home */,
@@ -432,6 +440,7 @@
 				CFEFD5BE27AEBA9200D63D57 /* ErrorAlert.swift in Sources */,
 				CF0CC9FA279C31B700157FFF /* LoginViewModel.swift in Sources */,
 				CFA796FE27BA5D4E008BF6CB /* DIContainer.swift in Sources */,
+				CFA7970027BA7DE9008BF6CB /* OutputMocks.swift in Sources */,
 				CF0CC9FC279C31CB00157FFF /* LoginUiState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,7 +456,6 @@
 				CFEFD5BA27AEAA5500D63D57 /* HomeUiStateTests.swift in Sources */,
 				CFEFD5CC27AEE67E00D63D57 /* HomeViewModelTests.swift in Sources */,
 				D6673317279ABE8F00CC8AB3 /* LoginChallengeTests.swift in Sources */,
-				CFEFD5C027AEC2AF00D63D57 /* OutputMocks.swift in Sources */,
 				CFEFD5B727AEA54100D63D57 /* LoginUiStateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

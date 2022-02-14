@@ -8,23 +8,7 @@ import APIServices
 import Entities
 import Foundation
 import Logging
-@testable import LoginChallenge
 
-
-class LoggerMock: LoginChallenge.Logger {
-    init() { }
-
-
-    private(set) var infoCallCount = 0
-    var infoHandler: ((String) -> ())?
-    func info(_ message: String)  {
-        infoCallCount += 1
-        if let infoHandler = infoHandler {
-            infoHandler(message)
-        }
-        
-    }
-}
 
 class AuthRepositoryMock: AuthRepository {
     init() { }
@@ -63,6 +47,21 @@ class UserRepositoryMock: UserRepository {
             return try await currentUserHandler()
         }
         fatalError("currentUserHandler returns can't have a default value thus its handler must be set")
+    }
+}
+
+class LoggerMock: LoginChallenge.Logger {
+    init() { }
+
+
+    private(set) var infoCallCount = 0
+    var infoHandler: ((String) -> ())?
+    func info(_ message: String)  {
+        infoCallCount += 1
+        if let infoHandler = infoHandler {
+            infoHandler(message)
+        }
+        
     }
 }
 

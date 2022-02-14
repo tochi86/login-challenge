@@ -5,7 +5,10 @@
 //  Created by Toshiya Kobayashi on 2022/02/05.
 //
 
+import Foundation
 import Logging
+
+let logger: Logger = isTesting() ? LoggerMock() : LoggerImpl(label: "LoginChallenge")
 
 /// @mockable(module: prefix = LoginChallenge)
 protocol Logger: AnyObject {
@@ -23,4 +26,8 @@ final class LoggerImpl: Logger {
     func info(_ message: String) {
         logger.info(.init(stringLiteral: message))
     }
+}
+
+private func isTesting() -> Bool {
+    return ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
 }

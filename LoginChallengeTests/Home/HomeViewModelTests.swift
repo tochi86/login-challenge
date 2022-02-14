@@ -26,7 +26,7 @@ class HomeViewModelTests: XCTestCase {
     @MainActor override func setUpWithError() throws {
         diContainer = DIContainerMock()
         DIContainer.default = diContainer
-        viewModel = HomeViewModel(logger: LoggerMock())
+        viewModel = HomeViewModel()
 
         diContainer.userRepositoryMock.currentUserHandler = { self.dummyUser }
     }
@@ -75,7 +75,7 @@ class HomeViewModelTests: XCTestCase {
     }
 
     func test_リロードボタンが無効の時はリロード処理を行わない() async throws {
-        viewModel = HomeViewModel(state: HomeUiState(isReloading: true), logger: LoggerMock())
+        viewModel = HomeViewModel(state: HomeUiState(isReloading: true))
         XCTAssertFalse(viewModel.state.isReloadButtonEnabled)
 
         diContainer.userRepositoryMock.currentUserHandler = {
@@ -91,7 +91,7 @@ class HomeViewModelTests: XCTestCase {
     }
 
     func test_ログアウトボタンが無効の時はログアウト処理を行わない() async throws {
-        viewModel = HomeViewModel(state: HomeUiState(isLoggingOut: true), logger: LoggerMock())
+        viewModel = HomeViewModel(state: HomeUiState(isLoggingOut: true))
         XCTAssertFalse(viewModel.state.isLogoutButtonEnabled)
 
         diContainer.authRepositoryMock.logoutHandler = { XCTFail() }

@@ -14,16 +14,12 @@ final class LoginViewModel: ObservableObject {
 
     private let authRepository: AuthRepository
 
-    private let logger: Logger
-
     init(
         state: LoginUiState = .init(),
-        authRepository: AuthRepository = DIContainer.default.authRepository(),
-        logger: Logger = LoggerImpl(label: String(reflecting: LoginViewModel.self))
+        authRepository: AuthRepository = DIContainer.default.authRepository()
     ) {
         self.state = state
         self.authRepository = authRepository
-        self.logger = logger
     }
 
     func onInputFieldValueChanged(id: String, password: String) {

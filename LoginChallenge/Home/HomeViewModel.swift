@@ -31,18 +31,14 @@ final class HomeViewModel: ObservableObject {
     private let authRepository: AuthRepository
     private let userRepository: UserRepository
 
-    private let logger: Logger
-
     init(
         state: HomeUiState = .init(),
         authRepository: AuthRepository = DIContainer.default.authRepository(),
-        userRepository: UserRepository = DIContainer.default.userRepository(),
-        logger: Logger = LoggerImpl(label: String(reflecting: HomeViewModel.self))
+        userRepository: UserRepository = DIContainer.default.userRepository()
     ) {
         self.state = state
         self.authRepository = authRepository
         self.userRepository = userRepository
-        self.logger = logger
     }
 
     func onViewDidAppear() async {
