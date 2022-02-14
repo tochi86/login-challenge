@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 final class HomeViewModel: ObservableObject {
 
     @Published private(set) var state: HomeUiState

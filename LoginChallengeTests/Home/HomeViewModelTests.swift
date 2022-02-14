@@ -9,7 +9,6 @@ import XCTest
 import Entities
 @testable import LoginChallenge
 
-@MainActor
 class HomeViewModelTests: XCTestCase {
 
     class DIContainerMock: DIContainer {
@@ -23,7 +22,7 @@ class HomeViewModelTests: XCTestCase {
     var viewModel: HomeViewModel!
     var diContainer: DIContainerMock!
 
-    @MainActor override func setUpWithError() throws {
+    override func setUpWithError() throws {
         diContainer = DIContainerMock()
         DIContainer.default = diContainer
         viewModel = HomeViewModel()

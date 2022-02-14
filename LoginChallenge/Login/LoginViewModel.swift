@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 final class LoginViewModel: ObservableObject {
 
     @Published private(set) var state: LoginUiState
