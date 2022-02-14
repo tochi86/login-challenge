@@ -18,7 +18,7 @@ final class LoginViewModel: ObservableObject {
 
     init(
         state: LoginUiState = .init(),
-        authRepository: AuthRepository = AuthRepositoryImpl(),
+        authRepository: AuthRepository = DIContainer.default.authRepository(),
         logger: Logger = LoggerImpl(label: String(reflecting: LoginViewModel.self))
     ) {
         self.state = state

@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Entities
 @testable import LoginChallenge
 
 class HomeUiStateTests: XCTestCase {
@@ -13,7 +14,7 @@ class HomeUiStateTests: XCTestCase {
     var state: HomeUiState!
 
     override func setUpWithError() throws {
-        state = .init()
+        state = HomeUiState()
     }
 
     func test_リロード中はリロードボタンが無効化される() throws {
@@ -36,7 +37,7 @@ class HomeUiStateTests: XCTestCase {
         state.user = nil
         XCTAssertTrue(state.shouldShowPlaceholder)
 
-        state.user = .init(id: .init(rawValue: "a"), name: "a", introduction: "a")
+        state.user = User(id: User.ID(rawValue: "a"), name: "a", introduction: "a")
         XCTAssertFalse(state.shouldShowPlaceholder)
     }
 }

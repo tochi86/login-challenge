@@ -13,7 +13,7 @@ class LoginUiStateTests: XCTestCase {
     var state: LoginUiState!
 
     override func setUpWithError() throws {
-        state = .init()
+        state = LoginUiState()
     }
 
     func test_ローディング中はIDとパスワード入力欄が無効化される() throws {

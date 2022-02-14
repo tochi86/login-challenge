@@ -12,21 +12,24 @@ import Entities
 @MainActor
 class LoginViewModelTests: XCTestCase {
 
-    var viewModel: LoginViewModel!
+    class DIContainerMock: DIContainer {
+        let authRepositoryMock = AuthRepositoryMock()
+        override func authRepository() -> AuthRepository { authRepositoryMock }
+    }
 
-    var authRepository: AuthRepositoryMock!
-    var logger: LoggerMock!
+    var viewModel: LoginViewModel!
+    var diContainer: DIContainerMock!
 
     @MainActor override func setUpWithError() throws {
-        authRepository = .init()
-        logger = .init()
-        viewModel = .init(authRepository: authRepository, logger: logger)
+        diContainer = DIContainerMock()
+        DIContainer.default = diContainer
+        viewModel = LoginViewModel(logger: LoggerMock())
     }
 
     func test_ログインボタンが無効の時はログイン処理を行わない() async throws {
         XCTAssertFalse(viewModel.state.isLoginButtonEnabled)
 
-        authRepository.loginHandler = { (_, _) in
+        diContainer.authRepositoryMock.loginHandler = { (_, _) in
             XCTFail()
         }
 
@@ -60,7 +63,7 @@ class LoginViewModelTests: XCTestCase {
         viewModel.onInputFieldValueChanged(id: "a", password: "a")
         XCTAssertNil(viewModel.state.showErrorAlert)
 
-        authRepository.loginHandler = { (_, _) in
+        diContainer.authRepositoryMock.loginHandler = { (_, _) in
             throw GeneralError(message: "")
         }
         await viewModel.onLoginButtonDidTap()
