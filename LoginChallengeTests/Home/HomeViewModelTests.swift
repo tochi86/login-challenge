@@ -30,6 +30,10 @@ class HomeViewModelTests: XCTestCase {
         diContainer.userRepositoryMock.currentUserHandler = { self.dummyUser }
     }
 
+    override func tearDownWithError() throws {
+        DIContainer.reset()
+    }
+
     func test_ユーザー情報読み込み中はリロード中フラグが立つ() async throws {
         let result = try await publishedValues(of: viewModel.$state.map(\.isReloading).removeDuplicates()) {
             await viewModel.onViewDidAppear()

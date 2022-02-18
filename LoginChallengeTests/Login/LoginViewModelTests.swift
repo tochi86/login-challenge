@@ -25,6 +25,10 @@ class LoginViewModelTests: XCTestCase {
         viewModel = LoginViewModel()
     }
 
+    override func tearDownWithError() throws {
+        DIContainer.reset()
+    }
+
     func test_ログインボタンが無効の時はログイン処理を行わない() async throws {
         XCTAssertFalse(viewModel.state.isLoginButtonEnabled)
 

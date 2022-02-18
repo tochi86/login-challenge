@@ -9,6 +9,7 @@ import Foundation
 
 class DIContainer {
     static var `default` = DIContainer()
+    static func reset() { self.default = DIContainer() }
 
     private lazy var _authRepository = AuthRepositoryImpl()
     func authRepository() -> AuthRepository { _authRepository }
