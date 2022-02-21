@@ -32,8 +32,8 @@ final class HomeViewModel: ObservableObject {
 
     init(
         state: HomeUiState = .init(),
-        authRepository: AuthRepository = DIContainer.default.authRepository(),
-        userRepository: UserRepository = DIContainer.default.userRepository()
+        authRepository: AuthRepository = Resolver.instance.authRepository(),
+        userRepository: UserRepository = Resolver.instance.userRepository()
     ) {
         self.state = state
         self.authRepository = authRepository

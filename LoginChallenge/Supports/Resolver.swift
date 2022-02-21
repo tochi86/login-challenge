@@ -1,5 +1,5 @@
 //
-//  DIContainer.swift
+//  Resolver.swift
 //  LoginChallenge
 //
 //  Created by Toshiya Kobayashi on 2022/02/14.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class DIContainer {
-    static var `default` = DIContainer()
-    static func reset() { self.default = DIContainer() }
+class Resolver {
+    static var instance = Resolver()
+    static func reset() { instance = Resolver() }
 
     private lazy var _authRepository = AuthRepositoryImpl()
     func authRepository() -> AuthRepository { _authRepository }

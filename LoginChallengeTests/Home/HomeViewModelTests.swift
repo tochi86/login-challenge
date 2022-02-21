@@ -11,7 +11,7 @@ import Entities
 
 class HomeViewModelTests: XCTestCase {
 
-    class DIContainerMock: DIContainer {
+    class ResolverMock: Resolver {
         let authRepositoryMock = AuthRepositoryMock()
         override func authRepository() -> AuthRepository { authRepositoryMock }
 
@@ -20,18 +20,18 @@ class HomeViewModelTests: XCTestCase {
     }
 
     var viewModel: HomeViewModel!
-    var diContainer: DIContainerMock!
+    var resolver: ResolverMock!
 
     override func setUpWithError() throws {
-        diContainer = DIContainerMock()
-        DIContainer.default = diContainer
+        resolver = ResolverMock()
+        Resolver.instance = resolver
         viewModel = HomeViewModel()
 
-        diContainer.userRepositoryMock.currentUserHandler = { self.dummyUser }
+        resolver.userRepositoryMock.currentUserHandler = { self.dummyUser }
     }
 
     override func tearDownWithError() throws {
-        DIContainer.reset()
+        Resolver.reset()
     }
 
     func test_ユーザー情報読み込み中はリロード中フラグが立つ() async throws {
@@ -44,7 +44,7 @@ class HomeViewModelTests: XCTestCase {
     }
 
     func test_画面表示時に読み込み失敗した後にリロードできる() async throws {
-        diContainer.userRepositoryMock.currentUserHandler = { throw GeneralError(message: "") }
+        resolver.userRepositoryMock.currentUserHandler = { throw GeneralError(message: "") }
         let result1 = try await publishedValues(of: viewModel.$state.map(\.isReloading).removeDuplicates()) {
             await viewModel.onViewDidAppear()
         }
@@ -57,7 +57,7 @@ class HomeViewModelTests: XCTestCase {
         viewModel.showSystemErrorAlert.wrappedValue = false
         XCTAssertNil(viewModel.state.showErrorAlert)
 
-        diContainer.userRepositoryMock.currentUserHandler = { self.dummyUser }
+        resolver.userRepositoryMock.currentUserHandler = { self.dummyUser }
         let result2 = try await publishedValues(of: viewModel.$state.map(\.isReloading).removeDuplicates()) {
             await viewModel.onReloadButtonDidTap()
         }
@@ -81,7 +81,7 @@ class HomeViewModelTests: XCTestCase {
         viewModel = HomeViewModel(state: HomeUiState(isReloading: true))
         XCTAssertFalse(viewModel.state.isReloadButtonEnabled)
 
-        diContainer.userRepositoryMock.currentUserHandler = {
+        resolver.userRepositoryMock.currentUserHandler = {
             XCTFail()
             fatalError()
         }
@@ -97,7 +97,7 @@ class HomeViewModelTests: XCTestCase {
         viewModel = HomeViewModel(state: HomeUiState(isLoggingOut: true))
         XCTAssertFalse(viewModel.state.isLogoutButtonEnabled)
 
-        diContainer.authRepositoryMock.logoutHandler = { XCTFail() }
+        resolver.authRepositoryMock.logoutHandler = { XCTFail() }
 
         let result = try await publishedValues(of: viewModel.$state.map(\.isLoggingOut).removeDuplicates()) {
             await viewModel.onLogoutButtonDidTap()
