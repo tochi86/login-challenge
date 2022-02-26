@@ -8,7 +8,7 @@
 import Foundation
 import Entities
 
-struct HomeUiState: Equatable {
+struct HomeUiState: UiState {
     var user: User?
     var isReloading: Bool = false
     var isLoggingOut: Bool = false

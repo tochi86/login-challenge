@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LoginUiState: Equatable {
+struct LoginUiState: UiState {
     var id: String = ""
     var password: String = ""
     var isLoading: Bool = false

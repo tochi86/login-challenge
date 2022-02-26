@@ -17,27 +17,19 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.$state.map(\.isIdFieldEnalbed)
-            .removeDuplicates()
-            .receive(on: DispatchQueue.main)
+        viewModel.$state.select(\.isIdFieldEnalbed)
             .assign(to: \.isEnabled, on: idField)
             .store(in: &cancellables)
 
-        viewModel.$state.map(\.isPasswordFieldEnabled)
-            .removeDuplicates()
-            .receive(on: DispatchQueue.main)
+        viewModel.$state.select(\.isPasswordFieldEnabled)
             .assign(to: \.isEnabled, on: passwordField)
             .store(in: &cancellables)
 
-        viewModel.$state.map(\.isLoginButtonEnabled)
-            .removeDuplicates()
-            .receive(on: DispatchQueue.main)
+        viewModel.$state.select(\.isLoginButtonEnabled)
             .assign(to: \.isEnabled, on: loginButton)
             .store(in: &cancellables)
 
-        viewModel.$state.map(\.isLoading)
-            .removeDuplicates()
-            .receive(on: DispatchQueue.main)
+        viewModel.$state.select(\.isLoading)
             .sink { [weak self] isLoading in
                 guard let self = self else { return }
 
@@ -56,9 +48,7 @@ final class LoginViewController: UIViewController {
             }
             .store(in: &cancellables)
 
-        viewModel.$state.map(\.showErrorAlert)
-            .removeDuplicates()
-            .receive(on: DispatchQueue.main)
+        viewModel.$state.select(\.showErrorAlert)
             .compactMap { $0 }
             .sink { [weak self] errorAlert in
                 guard let self = self else { return }
@@ -75,9 +65,7 @@ final class LoginViewController: UIViewController {
             }
             .store(in: &cancellables)
 
-        viewModel.$state.map(\.showHomeView)
-            .removeDuplicates()
-            .receive(on: DispatchQueue.main)
+        viewModel.$state.select(\.showHomeView)
             .filter { $0 }
             .sink { [weak self] _ in
                 guard let self = self else { return }

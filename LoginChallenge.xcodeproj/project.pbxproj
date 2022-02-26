@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0AD90C27CA73120058A4AB /* Combine+UiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0AD90B27CA73120058A4AB /* Combine+UiState.swift */; };
 		CF0CC9FA279C31B700157FFF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0CC9F9279C31B700157FFF /* LoginViewModel.swift */; };
 		CF0CC9FC279C31CB00157FFF /* LoginUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0CC9FB279C31CB00157FFF /* LoginUiState.swift */; };
 		CF3090D027AEF9B7002E7F98 /* User+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3090CF27AEF9B7002E7F98 /* User+Equatable.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF0AD90B27CA73120058A4AB /* Combine+UiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+UiState.swift"; sourceTree = "<group>"; };
 		CF0CC9F9279C31B700157FFF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CF0CC9FB279C31CB00157FFF /* LoginUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUiState.swift; sourceTree = "<group>"; };
 		CF3090CF27AEF9B7002E7F98 /* User+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Equatable.swift"; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				CFEFD5BD27AEBA9200D63D57 /* ErrorAlert.swift */,
 				CF3090CF27AEF9B7002E7F98 /* User+Equatable.swift */,
 				CFA796FD27BA5D4E008BF6CB /* Resolver.swift */,
+				CF0AD90B27CA73120058A4AB /* Combine+UiState.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				D667333D279ACF4300CC8AB3 /* ActivityIndicatorViewController.swift in Sources */,
 				CFEFD5AD27AE3E0800D63D57 /* HomeUiState.swift in Sources */,
 				D6673302279ABE8C00CC8AB3 /* SceneDelegate.swift in Sources */,
+				CF0AD90C27CA73120058A4AB /* Combine+UiState.swift in Sources */,
 				D667333F279AD1E400CC8AB3 /* UIViewController+TransitionAsync.swift in Sources */,
 				CFEFD5AB27AE3DFF00D63D57 /* HomeViewModel.swift in Sources */,
 				D6673346279B07F400CC8AB3 /* HomeViewController.swift in Sources */,
